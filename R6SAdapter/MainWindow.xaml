@@ -1,0 +1,28 @@
+﻿<Window x:Class="R6SAdapter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:R6SAdapter"
+        mc:Ignorable="d"
+        Title="彩虹六号steam-uplay转换器" Height="341.361" Width="618.864" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,0,2,0">
+        <Button x:Name="R6PathSelectButton" Content="选择文件夹" HorizontalAlignment="Left" Margin="479,21,0,0" VerticalAlignment="Top" Width="103" Height="23" Click="R6PathSelectButton_Click"/>
+        <TextBox x:Name="R6PathTextBox" HorizontalAlignment="Left" Height="23" Margin="136,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338" MaxLines="1" IsReadOnly="True"/>
+        <Label Content="彩虹六号安装文件夹" HorizontalAlignment="Left" Margin="10,21,0,0" VerticalAlignment="Top" Height="23" Width="128"/>
+        <Label x:Name="R6SState" Content="当前的版本：" HorizontalAlignment="Left" Margin="26,62,0,0" VerticalAlignment="Top" Width="145"/>
+        <Label x:Name="R6SSaveState" Content="" HorizontalAlignment="Left" Margin="26,92,0,0" VerticalAlignment="Top" Width="216" Height="60"/>
+        <Button x:Name="SaveSteamFile" Content="保存Steam版文件" HorizontalAlignment="Left" Margin="265,106,0,0" VerticalAlignment="Top" Width="110" Height="23" Click="SaveSteamFile_Click"/>
+        <Button x:Name="SaveUplayFile" Content="保存Uplay版文件" HorizontalAlignment="Left" Margin="423,106,0,0" VerticalAlignment="Top" Width="110" Height="23" Click="SaveUplayFile_Click"/>
+        <TextBlock x:Name="FirstUseHelpLink" HorizontalAlignment="Left" Margin="26,157,0,0" TextWrapping="Wrap" Text="第一次使用请点这里查看使用教程" VerticalAlignment="Top" Width="229" Height="20" FontSize="14" MouseUp="FirstUseHelpLink_MouseUp" Foreground="Blue"/>
+        <Button x:Name="AdaptR6SButton" Content="转换" HorizontalAlignment="Left" Margin="265,62,0,0" VerticalAlignment="Top" Width="110" Click="AdaptR6SButton_Click" Height="23"/>
+        <TextBlock x:Name="AboutLink" HorizontalAlignment="Left" Margin="401,282,0,0" TextWrapping="Wrap" Text="By 哇咔呢呀（ColdThunder11）" VerticalAlignment="Top" Width="210" Height="20" FontSize="14" MouseUp="AboutLink_MouseUp" Foreground="Blue"/>
+        <Rectangle HorizontalAlignment="Left" Height="100" Margin="26,182,0,0" Stroke="Black" VerticalAlignment="Top" Width="368">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="White"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button x:Name="BuildSteamLibrary" Content="尝试建立Steam库" HorizontalAlignment="Left" Margin="36,212,0,0" VerticalAlignment="Top" Width="123" Height="23" Click="BuildSteamLibrary_Click"/>
+        <Label Content="以下内容为实验性功能，不确保稳定性，爆炸了不要找我" HorizontalAlignment="Left" Margin="26,182,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
