@@ -16,6 +16,8 @@ namespace R6SAdapter
             SteamLibraryPath = R6SPath.Replace(@"\common\Tom Clancy's Rainbow Six Siege", string.Empty);
         }
 
+        const string SteamAcfUrl = "https://coldthunder11.com/R6SAdapter/SteamFiles/appmanifest_359550.acf";
+        const string SteamWorkShopUrl = "https://coldthunder11.com/R6SAdapter/SteamFiles/appworkshop_359550.acf";
         readonly string SteamLibraryPath;
         /// <returns>true->Exsist</returns>
         public bool CheckSteamLibraryExsist()
@@ -40,9 +42,9 @@ namespace R6SAdapter
         {
             HttpClient httpClient = new HttpClient
             {
-                BaseAddress = new Uri("https://coldthunder11.com/R6SAdapter/SteamFiles/appmanifest_359550.acf")
+                BaseAddress = new Uri(SteamAcfUrl)
             };
-            var requestTask = httpClient.GetStringAsync(new Uri("https://coldthunder11.com/R6SAdapter/SteamFiles/appmanifest_359550.acf"));
+            var requestTask = httpClient.GetStringAsync(new Uri(SteamAcfUrl));
             string steamAcfStr = requestTask.Result;
             File.WriteAllText(Path.Combine(SteamLibraryPath, "appmanifest_359550.acf"), steamAcfStr);
         }
@@ -51,9 +53,9 @@ namespace R6SAdapter
             string workShopDir = Path.Combine(SteamLibraryPath, "workshop");
             HttpClient httpClient = new HttpClient
             {
-                BaseAddress = new Uri("https://coldthunder11.com/R6SAdapter/SteamFiles/appworkshop_359550.acf")
+                BaseAddress = new Uri(SteamWorkShopUrl)
             };
-            var requestTask = httpClient.GetStringAsync(new Uri("https://coldthunder11.com/R6SAdapter/SteamFiles/appworkshop_359550.acf"));
+            var requestTask = httpClient.GetStringAsync(new Uri(SteamWorkShopUrl));
             string workshopStr = requestTask.Result;
             File.WriteAllText(Path.Combine(workShopDir, "appworkshop_359550.acf"),workshopStr);
         }

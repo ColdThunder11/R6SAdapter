@@ -118,72 +118,72 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutLinkLabelText" xml:space="preserve">
-    <value>By Coldthunder11</value>
+    <value>By 哇咔呢呀（ColdThunder11）</value>
   </data>
   <data name="BackupSuccessfully" xml:space="preserve">
-    <value>Backup successfully!</value>
+    <value>备份文件成功</value>
   </data>
   <data name="BuildSteamLibraryButtonText" xml:space="preserve">
-    <value>BuildSteamLibrary</value>
+    <value>建立Steam库</value>
   </data>
   <data name="CurrentVersionSteam" xml:space="preserve">
-    <value>Current Version: Steam</value>
+    <value>当前的版本：Steam</value>
   </data>
   <data name="CurrentVersionUplay" xml:space="preserve">
-    <value>Current Version: Uplay</value>
+    <value>当前的版本：Uplay</value>
   </data>
   <data name="Exsist" xml:space="preserve">
-    <value>Exsist</value>
+    <value>存在</value>
   </data>
   <data name="FailedtoFindR6S" xml:space="preserve">
-    <value>Failed to find R6S.</value>
+    <value>未找到R6安装文件，请重新选择目录</value>
   </data>
   <data name="FirstUseHelpLinkLabelText" xml:space="preserve">
-    <value>Click here to learn how to use this program.</value>
+    <value>第一次使用请点这里查看使用教程</value>
   </data>
   <data name="InstallDirectoryLabelText" xml:space="preserve">
-    <value>R6SDirectory</value>
+    <value>彩虹六号安装文件夹</value>
   </data>
   <data name="NoExsist" xml:space="preserve">
-    <value>NoExsist</value>
+    <value>不存在</value>
   </data>
   <data name="PleaseBackupFilesFirst" xml:space="preserve">
-    <value>Please backup files first.</value>
+    <value>请先完成文件的备份</value>
   </data>
   <data name="PleaseSelectR6SInstallDirectory" xml:space="preserve">
-    <value>PleaseSelectR6SInstallDirectory</value>
+    <value>请选择彩虹六号：围攻所在文件夹</value>
   </data>
   <data name="RunSteamVersionButtonText" xml:space="preserve">
-    <value>RunSteamVersion</value>
+    <value>运行Steam版</value>
   </data>
   <data name="RunUplayVersionButtonText" xml:space="preserve">
-    <value>RunUplayVersion</value>
+    <value>运行Uplay版</value>
   </data>
   <data name="SaveSteamFilesButtonText" xml:space="preserve">
-    <value>BackupSteamFiles</value>
+    <value>保存Steam版文件</value>
   </data>
   <data name="SaveUplayFilesButtonText" xml:space="preserve">
-    <value>BackupUplayFiles</value>
+    <value>保存Uplay版文件</value>
   </data>
   <data name="SelectInstallDirectoryButtonText" xml:space="preserve">
-    <value>SelectR6SDirectory</value>
+    <value>选择文件夹</value>
   </data>
   <data name="SteamBackup" xml:space="preserve">
-    <value>SteamBackup:</value>
+    <value>Steam版备份：</value>
   </data>
   <data name="SwitchSuccess" xml:space="preserve">
-    <value>Switch success.</value>
+    <value>转换成功</value>
   </data>
   <data name="SwitchVersionButtonText" xml:space="preserve">
-    <value>SwitchVersion</value>
+    <value>转换版本</value>
   </data>
   <data name="UplayBackup" xml:space="preserve">
-    <value>UplayBackup:</value>
+    <value>Uplay版备份：</value>
   </data>
   <data name="ViewGithub" xml:space="preserve">
-    <value>View Github to feedback</value>
+    <value>在Github进行反馈</value>
   </data>
   <data name="WindowTitle" xml:space="preserve">
-    <value>R6SAdapter</value>
+    <value>彩虹六号steam-uplay转换器</value>
   </data>
 </root>

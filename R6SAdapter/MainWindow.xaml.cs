@@ -23,10 +23,12 @@ namespace R6SAdapter
     {
         public MainWindow()
         {
+            //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
             InitializeComponent();
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            BuildSteamLibrary.IsEnabled = false;//暂时隐藏不用
             Config.LoadConfiguration();
             R6PathTextBox.Text = Config.Configuration.R6SPath;
             SetR6SState();
@@ -34,34 +36,32 @@ namespace R6SAdapter
         }
         private void SetR6SState()
         {
-            if (R6SFile.CheckSteamVersion()) R6SState.Content = "当前的版本：Steam";
-            else R6SState.Content = "当前的版本：Uplay";
+            if (R6SFile.CheckSteamVersion()) R6SState.Content = Properties.Resources.CurrentVersionSteam;
+            else R6SState.Content = Properties.Resources.CurrentVersionUplay;
         }
         private void SetR6SSaveState()
         {
             var sb = new StringBuilder();
-            sb.Append("Steam版备份：");
+            sb.Append(Properties.Resources.SteamBackup);
             if (R6SFile.CheckSteamBackup())
             {
-                sb.Append("存在 ");
-                sb.Append(R6SFile.GetSteamBackupTime().ToShortDateString());
+                sb.Append(Properties.Resources.Exsist);
             }
-            else sb.Append("不存在");
+            else sb.Append(Properties.Resources.NoExsist);
             sb.Append("\n");
-            sb.Append("Uplay版备份：");
+            sb.Append(Properties.Resources.UplayBackup);
             if (R6SFile.CheckUplayBackup())
             {
-                sb.Append(" 存在 ");
-                sb.Append(R6SFile.GetUplayBackupTime().ToShortDateString());
+                sb.Append(Properties.Resources.Exsist);
             }
-            else sb.Append("不存在");
+            else sb.Append(Properties.Resources.NoExsist);
             R6SSaveState.Content = sb.ToString();
         }
         private void R6PathSelectButton_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.Forms.FolderBrowserDialog dialog = new System.Windows.Forms.FolderBrowserDialog
             {
-                Description = "请选择彩虹六号：围攻所在文件夹"
+                Description = Properties.Resources.PleaseSelectR6SInstallDirectory
             };
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -73,7 +73,7 @@ namespace R6SAdapter
                     SetR6SState();
                     SetR6SSaveState();
                 }
-                else MessageBox.Show("未找到R6安装文件，请重新选择目录");
+                else MessageBox.Show(Properties.Resources.FailedtoFindR6S);
             }
         }
         private void AdaptR6SButton_Click(object sender, RoutedEventArgs e)
@@ -83,16 +83,16 @@ namespace R6SAdapter
                 if (R6SFile.CheckSteamVersion())
                 {
                     R6SFile.RecoveryUplayFiles();
-                    MessageBox.Show("成功转换为Uplay版");
+                    MessageBox.Show(Properties.Resources.SwitchSuccess);
                 }
                 else
                 {
                     R6SFile.RecoverySteamFiles();
-                    MessageBox.Show("成功转换为Steam版");
+                    MessageBox.Show(Properties.Resources.SwitchSuccess);
                 }
                 SetR6SState();
             }
-            else MessageBox.Show("请先完成文件的备份");
+            else MessageBox.Show(Properties.Resources.PleaseBackupFilesFirst);
         }
         private void FirstUseHelpLink_MouseUp(object sender, MouseButtonEventArgs e)
         {
@@ -107,7 +107,7 @@ namespace R6SAdapter
             if (R6SFile.CheckSteamVersion())
             {
                 R6SFile.BackupSteamFiles();
-                MessageBox.Show("备份Steam版文件成功");
+                MessageBox.Show(Properties.Resources.BackupSuccessfully);
             }
             else MessageBox.Show("请确认目前的彩虹六号为Steam版");
             SetR6SSaveState();
@@ -118,7 +118,7 @@ namespace R6SAdapter
             if (!R6SFile.CheckSteamVersion())
             {
                 R6SFile.BackupUplayFiles();
-                MessageBox.Show("备份Uplay版文件成功");
+                MessageBox.Show(Properties.Resources.BackupSuccessfully);
             }
             else MessageBox.Show("请确认目前的彩虹六号为Uplay版");
             SetR6SSaveState();
@@ -141,10 +141,29 @@ namespace R6SAdapter
                 if (R6SLB.RebuildSteamLibrary()) MessageBox.Show("操作完成");
             }
         }
-
-        private void AdvancedUseHelpLink_MouseUp(object sender, MouseButtonEventArgs e)
+        private void RunSteamVersion_Click(object sender, RoutedEventArgs e)
         {
+            if (!R6SFile.CheckSteamVersion())
+            {
+                R6SFile.RecoverySteamFiles();
+                SetR6SState();
+            }
+            System.Diagnostics.Process.Start("steam://run/359550");
+        }
 
+        private void RunUplayVersion_Click(object sender, RoutedEventArgs e)
+        {
+            if (R6SFile.CheckSteamVersion())
+            {
+                R6SFile.RecoveryUplayFiles();
+                SetR6SState();
+            }
+            System.Diagnostics.Process.Start("uplay://launch/635/0");
+        }
+
+        private void ViewGithub_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/ColdThunder11/R6SAdapter");
         }
     }
 }

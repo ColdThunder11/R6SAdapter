@@ -34,5 +34,6 @@ namespace R6SAdapter
     class Configuration
     {
         public string R6SPath = string.Empty;
+        public string LastR6FileUpdateTime = string.Empty;
     }
 }
