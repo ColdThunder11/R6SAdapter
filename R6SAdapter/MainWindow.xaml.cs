@@ -29,6 +29,7 @@ namespace R6SAdapter
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             BuildSteamLibrary.IsEnabled = false;//暂时隐藏不用
+            RunSteamVersion.IsEnabled = false; RunUplayVersion.IsEnabled = false;
             Config.LoadConfiguration();
             R6PathTextBox.Text = Config.Configuration.R6SPath;
             SetR6SState();
@@ -41,11 +42,20 @@ namespace R6SAdapter
         }
         private void SetR6SSaveState()
         {
+            if (Config.Configuration.R6SPath == String.Empty)
+            {
+                SaveSteamFile.IsEnabled = false; SaveUplayFile.IsEnabled = false;
+            }
+            else
+            {
+                SaveSteamFile.IsEnabled = true; SaveUplayFile.IsEnabled = true;
+            }
             var sb = new StringBuilder();
             sb.Append(Properties.Resources.SteamBackup);
             if (R6SFile.CheckSteamBackup())
             {
                 sb.Append(Properties.Resources.Exsist);
+                RunSteamVersion.IsEnabled = true;
             }
             else sb.Append(Properties.Resources.NoExsist);
             sb.Append("\n");
@@ -53,6 +63,7 @@ namespace R6SAdapter
             if (R6SFile.CheckUplayBackup())
             {
                 sb.Append(Properties.Resources.Exsist);
+                RunUplayVersion.IsEnabled = true;
             }
             else sb.Append(Properties.Resources.NoExsist);
             R6SSaveState.Content = sb.ToString();
