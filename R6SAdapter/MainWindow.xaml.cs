@@ -107,7 +107,7 @@ namespace R6SAdapter
         }
         private void FirstUseHelpLink_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://coldthunder11.com/R6SAdapter/R6SAdapterUseHelp.html");
+            System.Diagnostics.Process.Start("https://github.com/ColdThunder11/R6SAdapter/wiki/UseHelp-Steam2Uplay(CN)");
         }
         private void AboutLink_MouseUp(object sender, MouseButtonEventArgs e)
         {
