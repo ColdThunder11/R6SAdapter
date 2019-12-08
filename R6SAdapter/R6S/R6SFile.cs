@@ -54,16 +54,16 @@ namespace R6SAdapter
         public static void RecoverySteamFiles()
         {
             File.Copy(Path.Combine(SteamBackupPath, "defaultargs.dll"), Path.Combine(Config.Configuration.R6SPath, "defaultargs.dll"), true);
-            File.Copy(Path.Combine(SteamBackupPath, "steam_api64.dll"), Path.Combine(Config.Configuration.R6SPath, "steam_api64.dll"), true);
             File.Delete(Path.Combine(Config.Configuration.R6SPath, "uplay_install.manifest"));
             File.Delete(Path.Combine(Config.Configuration.R6SPath, "uplay_install.state"));
+            DeleteTempFiles();
         }
         public static void RecoveryUplayFiles()
         {
             File.Copy(Path.Combine(UplayBackupPath, "defaultargs.dll"), Path.Combine(Config.Configuration.R6SPath, "defaultargs.dll"), true);
             File.Copy(Path.Combine(UplayBackupPath, "uplay_install.manifest"), Path.Combine(Config.Configuration.R6SPath, "uplay_install.manifest"), true);
             File.Copy(Path.Combine(UplayBackupPath, "uplay_install.state"), Path.Combine(Config.Configuration.R6SPath, "uplay_install.state"), true);
-            File.Delete(Path.Combine(Config.Configuration.R6SPath, "steam_api64.dll"));
+            DeleteTempFiles();
         }
         public static DateTime GetSteamBackupTime()
         {
@@ -74,6 +74,17 @@ namespace R6SAdapter
         {
             var fi = new FileInfo(Path.Combine(UplayBackupPath, "defaultargs.dll"));
             return fi.LastAccessTime;
+        }
+        static void DeleteTempFiles()
+        {
+            foreach (string f in Directory.GetFileSystemEntries(Path.Combine(Config.Configuration.R6SPath,"download","cache")))
+            {
+
+                if (File.Exists(f))
+                {
+                    File.Delete(f);
+                }
+            }
         }
     }
 }

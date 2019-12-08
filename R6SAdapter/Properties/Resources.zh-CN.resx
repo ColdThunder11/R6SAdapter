@@ -126,6 +126,9 @@
   <data name="BuildSteamLibraryButtonText" xml:space="preserve">
     <value>建立Steam库</value>
   </data>
+  <data name="CurrentVersion" xml:space="preserve">
+    <value>当前版本：</value>
+  </data>
   <data name="CurrentVersionSteam" xml:space="preserve">
     <value>当前的版本：Steam</value>
   </data>

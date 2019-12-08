@@ -126,6 +126,9 @@
   <data name="BuildSteamLibraryButtonText" xml:space="preserve">
     <value>BuildSteamLibrary</value>
   </data>
+  <data name="CurrentVersion" xml:space="preserve">
+    <value>Current version : </value>
+  </data>
   <data name="CurrentVersionSteam" xml:space="preserve">
     <value>Current Version: Steam</value>
   </data>

@@ -11,7 +11,7 @@
         <Button x:Name="R6PathSelectButton" Content="{x:Static loc:Resources.SelectInstallDirectoryButtonText}" HorizontalAlignment="Left" Margin="479,21,0,0" VerticalAlignment="Top" Width="122" Height="23" Click="R6PathSelectButton_Click"/>
         <TextBox x:Name="R6PathTextBox" HorizontalAlignment="Left" Height="23" Margin="136,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338" MaxLines="1" IsReadOnly="True"/>
         <Label Content="{x:Static loc:Resources.InstallDirectoryLabelText}" HorizontalAlignment="Left" Margin="10,21,0,0" VerticalAlignment="Top" Height="25" Width="128"/>
-        <Label x:Name="R6SState" Content="当前的版本：" HorizontalAlignment="Left" Margin="16,60,0,0" VerticalAlignment="Top" Width="145"/>
+        <Label x:Name="R6SState" Content="{x:Static loc:Resources.CurrentVersion}" HorizontalAlignment="Left" Margin="16,60,0,0" VerticalAlignment="Top" Width="145"/>
         <Label x:Name="R6SSaveState" Content="" HorizontalAlignment="Left" Margin="16,90,0,0" VerticalAlignment="Top" Width="216" Height="60"/>
         <Button x:Name="SaveSteamFile" Content="{x:Static loc:Resources.SaveSteamFilesButtonText}" HorizontalAlignment="Left" Margin="255,104,0,0" VerticalAlignment="Top" Width="110" Height="23" Click="SaveSteamFile_Click"/>
         <Button x:Name="SaveUplayFile" Content="{x:Static loc:Resources.SaveUplayFilesButtonText}" HorizontalAlignment="Left" Margin="396,104,0,0" VerticalAlignment="Top" Width="110" Height="23" Click="SaveUplayFile_Click"/>
